@@ -1,0 +1,280 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{qrcode}
+\usepackage{lmodern}
+\usepackage{colortbl}%permet de griser les cases
+\usepackage{tabularx, multirow}
+%\usepackage{lscape}
+\usepackage{xcolor}
+%\usepackage{graphicx}
+\usepackage{tikz,tkz-base}
+\input{preambulemanu.sty}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\def\Oij{$\left(\text{O},~\vec{i},~\vec{j}\right)$}
+\usepackage{fancyhdr}
+\usepackage{MnSymbol,wasysym}
+
+%Permet le code python sur lateX
+\usepackage{minted}
+\usemintedstyle{lovelace}
+
+
+
+\begin{document}
+\textbf{2nd} \hfill \textbf{Les vecteurs -2ème partie} \hfill Lycée Jean Rostand\\
+\trait 
+
+\section{Coordonnées d'un vecteur}
+\begin{defi}
+Soit M un point quelconque d'un repère \Oij{} et un vecteur $\vv{u}$ tel que: $\vv{OM}=\vv{u}$.\\
+Les \textbf{coordonnées du vecteur $\vv{u}$} sont les coordonnées du point M.\\
+On note : $\Coord{u}{x}{y}$
+\end{defi}
+
+\begin{center}
+    
+
+\begin{tikzpicture}[scale=0.8]
+    \tkzInit[xmin=-3, xmax=5, ymin=-2,ymax=5]
+    \tkzDrawXY
+    \draw[lightgray,very thin] (-3,-2) grid (5,5);
+    \draw [->,>=latex] (0,0) -- (1,0);
+    \draw [->,>=latex] (0,0) -- (0,1) ;
+    \draw (-0.2,0) node [below,] {$O$};
+    \draw (0,0.5) node [left] {$\vv{j}$};
+      \draw (0.5,0) node [below]{$\vv{i}$};
+     \draw [->,>=latex,red] (0,0) -- (4,2);
+     \draw [->,>=latex,red] (-2,2) -- (2,4);
+     \draw (4,2) node [above] {$M$};
+     \draw (2,1.2) node [above,red]{$\vv{OM}$};
+     \draw (-0.5,3) node [above,red]{$\vv{u}$};
+
+\end{tikzpicture}
+\end{center}
+
+
+\begin{mybox}{Exercice n°1}
+Déterminer les coordonnées des vecteurs $\vv{AB}$ , $\vv{CD}$ et $\vv{EF}$ par lecture graphique.
+\end{mybox}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \tkzInit[xmin=-4, xmax=6, ymin=-5,ymax=4]
+    \tkzDrawXY
+    \draw[lightgray,very thin] (-4,-5) grid (6,4);
+    \draw [->,>=latex] (0,0) -- (1,0);
+    \draw [->,>=latex] (0,0) -- (0,1) ;
+    \draw (-0.2,0) node [below,] {$O$};
+    \draw (0,0.5) node [left] {$\vv{j}$};
+      \draw (0.5,0) node [below]{$\vv{i}$};
+     \draw [->,>=latex] (2,1) -- (5,3);
+     \draw [->,>=latex] (-1,-2) -- (-2,3);
+     \draw [->,>=latex] (1,-4) -- (4,-2);
+     \draw (2,1) node [above] {$A$};
+     \draw (5,3) node [above] {$B$};
+     \draw (-1,-2) node [right] {$C$};
+     \draw (-2,3) node [right] {$D$};
+     \draw (1,-4) node [above] {$E$};
+     \draw (4,-2) node [above] {$F$};
+     
+
+\end{tikzpicture}
+\end{center}
+
+\begin{framed}
+\vspace{3cm}
+\end{framed}
+
+\begin{pro}
+Soit $A$ et $B$ deux points de coordonnées $(x_A,y_A)$ et $(x_B,y_B)$ dans un repère \Oij{}.\\
+Le vecteur $\vv{AB}$ a pour coordonnées :
+$\begin{pmatrix} 
+      x_B-x_A\\ 
+      y_B-y_A 
+    \end{pmatrix}$
+\end{pro}
+
+\begin{mybox}{Exercice n°2}
+Déterminer par calcul les coordonnées du vecteurs $\vv{AB}$ tel que $A(-2; 1)$ et $B(3; 4)$.
+
+\end{mybox}
+
+\begin{framed}
+\vspace{3cm}
+\end{framed}
+
+
+
+
+\begin{pro}
+Soit $\vv{u}$ et $\vv{v}$ deux vecteurs de coordonnées 
+$\begin{pmatrix} 
+      x\\ 
+      y
+\end{pmatrix}$
+et 
+$\begin{pmatrix} 
+      x'\\ 
+      y'
+\end{pmatrix}$
+dans un repère \Oij{} et un réel $k$.
+\begin{itemize}
+    \item $\vv{u}=\vv{v}$ équivaut à $x=x'$ et $y=y'$
+    \item Le vecteur $\vv{u}+\vv{v}$a pour coordonnées 
+    $\begin{pmatrix} 
+      x+x'\\ 
+      y+y'
+\end{pmatrix}$
+\item Le vecteur $k\vv{u}$a pour coordonnées
+ $\begin{pmatrix} 
+      kx'\\ 
+      ky'
+\end{pmatrix}$
+\end{itemize}
+\end{pro}
+
+
+
+\begin{mybox}{Exercice n°3}
+Dans un repère, soit les points $A(2; 4)$ et $B(-2; 2)$ et $C(4; -2)$ et $D(8;0)$\\
+
+\begin{enumerate}
+    \item Placer les points dans un repère \Oij{}. Quel conjecture peut-on faire sur le quadrilatère $AB\textbf{C}D$ ?
+    \item Démontrer que $\vv{AD}=\vv{BC}$
+    \item Déterminer les coordonnées du point $E$ tel que $ABEC$ soit un parallélogramme.
+\end{enumerate}
+
+Déterminer les coordonnées du points $D$ tel que $AB\textbf{C}D$ soit un parallélogramme
+\end{mybox}
+
+\begin{framed}
+\vspace{3cm}
+\end{framed}
+
+
+
+
+
+\begin{mybox}{Exercice n°4}
+Dans un repère, soit les points $A(1; 2)$ et $B(-4; 3)$ et $C(1; 2)$.\\
+Déterminer les coordonnées du points $D$ tel que $AB\textbf{C}D$ soit un parallélogramme
+\end{mybox}
+
+\begin{framed}
+\vspace{3cm}
+\end{framed}
+
+
+\begin{mybox}{Exercice n°5}
+Dans un repère \Oij{}, soit les points $A(-2; 1)$ et $K(2; 3)$ et $B(6; 7)$ et $L(1;6)$\\
+\begin{enumerate}
+    \item Calculer les coordonnées de $\vv{IA}$ et $\vv{JK}$
+    \item Déterminer les coordonnées du point $D$ tel que $\vv{KD}=-\vv{BL}$
+\end{enumerate}
+\end{mybox}
+
+\begin{framed}
+\vspace{3cm}
+\end{framed}
+
+
+
+
+
+
+
+
+
+
+
+\section{Distance ou norme d'un vecteur}
+
+\begin{pro}
+Soit $A$ et $B$ deux points de coordonnées $(x_A,y_A)$ et $(x_B,y_B)$ dans un repère \Oij{} , alors :
+$$AB=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2}$$
+
+La norme du vecteur $\vv{AB}$ est la distance $AB$ c'est-à-dire la longueur sur segment $[AB]$ .\\
+Elle se note à l'aide d'une double barre : $\norme{\vv{AB}}$ 
+\end{pro}
+
+
+\begin{mybox}{Exercice n°5}
+Dans un repère \Oij{}, soit les points $A(3;2)$ et $B(2; -2)$ .
+
+\begin{enumerate}
+    \item Calculer les coordonnées du vecteur $\vv{AB}$.
+    \item En déduire la norme $\norme{\vv{AB}}$ .
+\end{enumerate}
+
+\end{mybox}
+
+\begin{framed}
+\vspace{3cm}
+\end{framed}
+
+
+\section{Coordonnées du milieu d'un segment}
+
+
+\begin{pro}
+Soit $A$ et $B$ deux points de coordonnées $(x_A,y_A)$ et $(x_B,y_B)$ dans un repère \Oij{}.
+Le milieu $M$ du segment $[AB]$ a pour coordonnées:
+
+$$M\left(\dfrac{x_A+x_B}{2};\dfrac{y_A+y_B}{2}\right)$$
+\end{pro}
+
+\begin{mybox}{Exercice n°6}
+Dans un repère \Oij{}, soit les points $A(2;3)$ et $B(-2; 1)$ et $C(3;-1)$.\\
+Calculer les coordonnées de $M$, $N$ et $P$ milieux respectifs de $[AB]$, $[AC]$ et $[BC]$.
+\end{mybox}
+
+\begin{framed}
+\vspace{3cm}
+\end{framed}
+
+
+\section{Colinéarité de deux vecteurs}
+
+\begin{defi}
+Deux vecteurs $\vv{u}$ et $\vv{v}$ sont colinéaires lorsqu'ils existent un réel $k$ non nul tel que $\vv{u}=k\x\vv{v}$
+\end{defi}
+
+\begin{defi}
+Soient $\Coord{u}{x}{y}$ et $\Coord{v}{x'}{y'}$ deux vecteurs dans un repère du plan.\\
+Le déterminant de $\vv{u}$ et $\vv{v}$, noté $det(\vv{u};\vv{v})$, est le nombre tel que : $$det(\vv{u};\vv{v})=\begin{vmatrix} x & x' \\ y & y' \end{vmatrix}=xy'-x'y$$
+
+\end{defi}
+
+
+\begin{pro}
+$\Coord{u}{x}{y}$ et $\Coord{v}{x'}{y'}$ sont colinéaires si et seulement si $det(\vv{u};\vv{v})=0$
+\end{pro}
+
+\begin{pro}
+\textbf{Conséquences sur l'alignement et le parallélisme}
+
+\begin{itemize}
+    \item $\vv{AB}$ et $\vv{MN}$ sont colinéaires ssi $(AB)\sslash (MN)$
+    \item $\vv{AB}$ et $\vv{AC}$ sont colinéaires ssi $A$,$B$ et $C$ sont alignés.
+\end{itemize}
+\end{pro}
+
+
+
+\section{Equation cartésienne de droite et vecteur directeur.}
+
+\begin{defi}
+Soit $\mathscr{D}$ une droite, et $A$ et $B$ deux points de $\mathscr{D}$.\\
+On appelle \textbf{vecteur directeur} de $\mathscr{D}$ tout vecteurs $\vv{u}$ non nul colinéaire à $\vv{AB}$.
+\end{defi}
+
+\begin{pro}
+Une équation cartésienne de la droite passant par le point $A($
+\end{pro}
+
+\end{document}

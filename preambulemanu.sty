@@ -1,0 +1,487 @@
+% Fichier de style stage.sty [UTF8]
+% Copyleft Laurent Bretonnière, laurent.bretonniere@gmail.com
+% Version du 14/03/2015 
+
+%*********************************************************************************************
+% Packages
+%*********************************************************************************************
+
+\usepackage[utf8]{inputenc}%			encodage du fichier source (Linux)
+\usepackage[TS1,T1]{fontenc}%			gestion des accents (pour les pdf)
+\usepackage[french]{babel}%				rajouter éventuellement greek, etc.
+\frenchbsetup{CompactItemize=false,StandardLists=true}
+\usepackage{enumitem}%
+\setenumerate[1]{label=\arabic*/}%
+\setenumerate[2]{label=\alph*/}%
+%\setlist{font=\bfseries,leftmargin=*}%
+\setlist{font=\bfseries,leftmargin=*,topsep=1pt,partopsep=1pt,itemsep=2pt,parsep=1pt}%
+
+\usepackage{textcomp}%					caractères additionnels
+\usepackage{amsmath,amssymb}%			pour les maths (1)
+\usepackage{amsfonts}%					pour les maths (2)
+\usepackage{lmodern}%					remplacer éventuellement par txfonts, fourier, etc.
+
+\usepackage{graphicx}%
+
+% cf site web http://www.khirevich.com/latex/microtype/
+%\usepackage[babel=true,kerning=true]{microtype}%
+\usepackage{microtype}%
+
+\usepackage{dsfont}%					pour les ensembles de nombres N,Z,D,Q,R,C ...
+\usepackage{mathrsfs}%					pour les écritures calligraphiques (genre Cf et Df)
+\usepackage[np]{numprint}% page 58  	pour afficher les nombres 3 par 3
+\usepackage[e]{esvect}% page 60		vecteurs
+\usepackage{stmaryrd}%					pour les intervalles entiers et sslash
+\usepackage{empheq}% 					encadrer en mode math
+\usepackage{xcolor}%					pour gérer les couleurs
+\usepackage{soul}% 						pour les fluos	
+\usepackage{xspace}%					gestion des espaces
+\usepackage{pifont}% 					trèfle, pique, carreau, coeur
+\usepackage{eurosym}%					symbole euro
+\usepackage{mathabx}%					choix personnel
+
+\usepackage{hyperref}%
+\hypersetup{%
+colorlinks=true,%
+breaklinks=true,%
+citecolor=red,%
+urlcolor=blue,%
+linkcolor=black,% ou blue
+bookmarksopen=false,%
+pdfcreator=PDFLaTeX,%
+pdfproducer=PDFLaTeX,%
+pdfmenubar=true,%
+pdftoolbar=true,%
+pdfauthor={Laurent Bretonnière},%
+pdfkeywords={Mathématiques},%
+pdfstartview=XYZ}%
+
+%*********************************************************************************************
+% Mathématiques (cf chapitre 7 page 56, LaTeX pour le prof de maths, IREM de Lyon)
+%*********************************************************************************************
+
+% Fonctions usuelles
+\DeclareMathOperator{\cotan}{cotan}%
+\DeclareMathOperator{\ch}{ch}%
+\DeclareMathOperator{\sh}{sh}%
+\DeclareMathOperator{\thyp}{th}%
+\renewcommand{\th}{\thyp}%
+\DeclareMathOperator{\Arcsin}{Arcsin}%
+\DeclareMathOperator{\Arccos}{Arccos}%
+\DeclareMathOperator{\Arctan}{Arctan}%
+\DeclareMathOperator{\Argsh}{Argsh}%
+\DeclareMathOperator{\Argch}{Argch}%
+\DeclareMathOperator{\Argth}{Argth}%
+\DeclareMathOperator{\pgcd}{pgcd}%
+\DeclareMathOperator{\ppcm}{ppcm}%
+\DeclareMathOperator{\card}{card}%
+
+% Composée de fonctions
+\newcommand{\rond}{\circ}%
+
+% Multiplication
+\newcommand{\x}{\times}
+
+% Constantes usuelles
+\renewcommand{\i}{\mathrm{i}}%
+\newcommand{\e}{\mathrm{e}}%
+
+% Éléments différentiels
+\newcommand{\dt}{\,\textrm{d}t}%
+\newcommand{\du}{\,\textrm{d}u}%
+\newcommand{\dv}{\,\textrm{d}v}%
+\newcommand{\dw}{\,\textrm{d}w}%
+\newcommand{\dx}{\,\textrm{d}x}%
+\newcommand{\dy}{\,\textrm{d}y}%
+\newcommand{\dz}{\,\textrm{d}z}%
+
+% Ensembles de nombres
+\newcommand{\ensnb}[1]{\ensuremath{\mathbb{#1}}}%
+\newcommand{\N}{\ensnb{N}}%
+\newcommand{\Z}{\ensnb{Z}}%
+\newcommand{\D}{\ensnb{D}}%
+\newcommand{\Q}{\ensnb{Q}}%
+\newcommand{\R}{\ensnb{R}}%
+\newcommand{\Rp}{\R_{+}}%
+\newcommand{\Rm}{\R_{-}}%
+\newcommand{\mtsmall}{\fontsize{5pt}{5pt}\selectfont}%
+\newcommand{\Rpe}{\R_{\mbox{\mtsmall$+$}}^{\mskip0.4mu\ast}}%
+\newcommand{\Rme}{\R_{\mbox{\mtsmall$-$}}^{\mskip0.4mu\ast}}%
+\newcommand{\Ret}{\R^{\ast}}% \Re pris pour la partie réelle d'un complexe
+\newcommand{\Ne}{\N^{\ast}}%
+\newcommand{\Ze}{\Z^{\ast}}%
+\newcommand{\C}{\ensnb{C}}%
+\newcommand{\Ce}{\C^{\ast}}%
+
+% Noms de points en majuscules en romain (et non pas en italiques)
+\DeclareMathSymbol{A}{\mathalpha}{operators}{`A}
+\DeclareMathSymbol{B}{\mathalpha}{operators}{`B}
+\DeclareMathSymbol{C}{\mathalpha}{operators}{`C}
+\DeclareMathSymbol{D}{\mathalpha}{operators}{`D}
+\DeclareMathSymbol{E}{\mathalpha}{operators}{`E}
+\DeclareMathSymbol{F}{\mathalpha}{operators}{`F}
+\DeclareMathSymbol{G}{\mathalpha}{operators}{`G}
+\DeclareMathSymbol{H}{\mathalpha}{operators}{`H}
+\DeclareMathSymbol{I}{\mathalpha}{operators}{`I}
+\DeclareMathSymbol{J}{\mathalpha}{operators}{`J}
+\DeclareMathSymbol{K}{\mathalpha}{operators}{`K}
+\DeclareMathSymbol{L}{\mathalpha}{operators}{`L}
+\DeclareMathSymbol{M}{\mathalpha}{operators}{`M}
+\DeclareMathSymbol{N}{\mathalpha}{operators}{`N}
+\DeclareMathSymbol{O}{\mathalpha}{operators}{`O}
+\DeclareMathSymbol{P}{\mathalpha}{operators}{`P}
+\DeclareMathSymbol{Q}{\mathalpha}{operators}{`Q}
+\DeclareMathSymbol{R}{\mathalpha}{operators}{`R}
+\DeclareMathSymbol{S}{\mathalpha}{operators}{`S}
+\DeclareMathSymbol{T}{\mathalpha}{operators}{`T}
+\DeclareMathSymbol{U}{\mathalpha}{operators}{`U}
+\DeclareMathSymbol{V}{\mathalpha}{operators}{`V}
+\DeclareMathSymbol{W}{\mathalpha}{operators}{`W}
+\DeclareMathSymbol{X}{\mathalpha}{operators}{`X}
+\DeclareMathSymbol{Y}{\mathalpha}{operators}{`Y}
+\DeclareMathSymbol{Z}{\mathalpha}{operators}{`Z}
+
+% Raccourci displaystyle + hack :-)
+\newcommand{\dps}{\displaystyle}%
+\newcommand{\dsp}{\displaystyle}%
+\newcommand{\disp}{\displaystyle}%
+\everymath{\displaystyle}%
+
+% Mots usuels en mode math
+\newcommand{\mtext}[1]{\quad\text{#1}\quad}%
+\newcommand{\et}{\mtext{et}}%
+\newcommand{\ou}{\mtext{ou}}%
+\newcommand{\si}{\mtext{si}}%
+
+% Flèches
+\newcommand{\tv}{\shortrightarrow}% tend vers
+\renewcommand{\to}{\shortrightarrow}% tend vers
+\newcommand{\suit}{\hookrightarrow}% X suit la loi...
+\newcommand{\dans}{\longrightarrow}% f:\R\dans\R
+\newcommand{\donne}{\longmapsto}% f:x\donne 2x+3
+\newcommand{\ppv}{\leftarrow}% flèche <-- d'affectation "prend pour valeur"
+\newcommand{\ech}{\leftrightarrow}% double flèche <--> : échange/swap
+
+% Vecteurs
+% \vv{AB} en utilisant l'extension \usepackage[e]{esvect}
+
+% Norme et valeur absolue
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}%
+\newcommand{\norme}[1]{\left\lVert#1\right\rVert}%
+
+% Complexes
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\bar}{\overline}
+
+% Matrices
+\newcommand{\trans}[1]{{\vphantom{#1}}^{\mathit{t}}\!{#1}}%
+
+% Coefficient binomial
+\newcommand{\cb}[2]{\binom{#2}{#1}}%
+
+% Matrice augmentée
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+% Parallèles et perpendiculaires
+\newcommand{\para}{\sslash}%
+% perp pour perpendiculaire
+
+% Intervalles
+\newcommand{\intervalle}[4]{\mathchoice%
+{\left#1#2\mathclose{}\mathpunct{},#3\right#4}% mode \displaystyle
+{\mathopen{#1}#2\mathclose{}\mathpunct{},#3\mathclose{#4}}% mode \textstyle
+{\mathopen{#1}#2\mathclose{}\mathpunct{},#3\mathclose{#4}}% mode \scriptstyle
+{\mathopen{#1}#2\mathclose{}\mathpunct{},#3\mathclose{#4}}% mode \scriptscriptstyle
+}%
+
+\newcommand{\intff}[2]{\intervalle{[}{#1}{#2}{]}}%
+\newcommand{\intof}[2]{\intervalle{]}{#1}{#2}{]}}%
+\newcommand{\intfo}[2]{\intervalle{[}{#1}{#2}{[}}%
+\newcommand{\intoo}[2]{\intervalle{]}{#1}{#2}{[}}%
+
+% Ancienne configuration
+%\newcommand{\intervalle}[4]{\mathopen{#1}#2\mathclose{}\mathpunct{},#3\mathclose{#4}}%
+%\newcommand{\intoo}[2]{\ensuremath{\,\left]  #1 \,, #2  \right[\, }}%
+%\newcommand{\intof}[2]{\ensuremath{\,\left]  #1 \,, #2  \right]\, }}%
+%\newcommand{\intfo}[2]{\ensuremath{\,\left[  #1 \,, #2  \right[\, }}%
+%\newcommand{\intff}[2]{\ensuremath{\,\left[  #1 \,, #2  \right]\, }}%
+
+% Intervalles entiers
+\newcommand{\intn}[2]{\intervalle{\llbracket}{#1}{#2}{\rrbracket}}%
+
+% Ensembles et Probabilités
+\newcommand{\vide}{\varnothing}% ensemble vide
+\newcommand{\union}{\cup}%
+\newcommand{\inter}{\cap}%
+\newcommand{\Union}{\bigcup}%
+\newcommand{\Inter}{\bigcap}%
+\newcommand{\compl}{\complement}% complémentaire
+\newcommand{\inclus}{\subseteq}% inclus : je n'aime pas \subset je préfère \subseteq...
+\newcommand{\inclusstrict}{\subsetneq}% inclus au sens strict ...
+\newcommand{\contient}{\supseteq}% contient
+\newcommand{\contientstrict}{\supsetneq}% contient au sens strict ...
+\newcommand{\prive}{\setminus}% privé de ...
+\renewcommand{\P}{\mathrm{P}} % probabilité
+\newcommand{\V}{\mathrm{V}} % variance
+\newcommand{\E}{\mathrm{E}} % espérance
+
+% ensemble des ... tels que ...
+\newcommand{\enstq}[2]{\left\{#1\,\;\middle|\;\,#2\right\}}%
+
+% Pointillés anti-diagonale
+\newcommand{\adots}{\mathinner{\mkern2mu\raise 1pt\hbox{.}\mkern3mu\raise 4pt\hbox{.}\mkern1mu\raise 7pt\hbox{.}}}%
+
+% Partie entière
+\newcommand{\ent}[1]{\left\lfloor#1\right\rfloor}% partie entière (première notation)
+\newcommand{\Ent}[1]{\textrm{Ent}\mathopen{}\left(#1\right)}% partie entière (deuxième notation)
+
+% Angle
+\renewcommand{\angle}{\widehat}%
+
+% Limites
+\newcommand{\iy}{\infty}% 
+\newcommand{\ii}{\infty}%
+\newcommand{\zp}{0^{+}}%
+\newcommand{\zm}{0^{-}}%
+
+% Encadrement d'une formule
+%\begin{empheq}[box=\fbox]{equation*}
+% ...    
+%\end{empheq}
+
+% Couleurs
+% http://www.latextemplates.com/svgnames-colors
+\definecolor{bleu1}{HTML}{000080}%
+\definecolor{grispale}{RGB}{245 245 245}%
+\definecolor{bistre}{rgb}{.75 .50 .30}%
+\definecolor{grisclair}{gray}{0.8}%
+\definecolor{bleuclair}{rgb}{0.7, 0.7, 1.0}%
+\definecolor{rosepale}{rgb}{1.0, 0.7, 1.0}%
+
+% Fluos !
+\newcommand{\fluo}[1]{\sethlcolor{rosepale}\hl{#1}}%
+
+% Lettres calligraphiées
+\newcommand{\Cf}{\mathscr{C}_f}%
+\newcommand{\Df}{\mathscr{D}_f}%
+\newcommand{\Cg}{\mathscr{C}_g}%
+\newcommand{\Dg}{\mathscr{D}_g}%
+\newcommand{\Ch}{\mathscr{C}_h}%
+\newcommand{\Dh}{\mathscr{D}_h}%
+
+% Degré
+\newcommand{\Degre}{\ensuremath{^\circ}}
+
+% Lettres grecques
+\renewcommand{\epsilon}{\varepsilon}%
+\renewcommand{\phi}{\varphi}%
+
+% Mots usuels
+\newcommand{\ie}{\;\textit{i.e.}\;\xspace}
+\newcommand{\cad}{c'est--à--dire\xspace}%
+\newcommand{\pourcent}{\unskip~\%\xspace}%
+\newcommand{\ssi}{si et seulement si\xspace}%
+\newcommand{\eve}{événement\xspace}%
+\newcommand{\eves}{événements\xspace}%
+\newcommand{\sev}{sous-espace vectoriel\xspace}%
+\newcommand{\ipp}{intégration par parties\xspace}%
+\newcommand{\iaf}{inégalité des accroissements finis\xspace}%
+\newcommand{\tvi}{théorème des valeurs intermédiaires\xspace}%
+\newcommand{\fpt}{formule des probabilités totales\xspace}%
+\newcommand{\fpc}{formule des probabilités composées\xspace}%
+\newcommand{\sce}{système complet d'événements\xspace}%
+\newcommand{\srld}{suite récurrence linéaire d'ordre $2$\xspace}%
+\newcommand{\sag}{suite arithmético-géométrique\xspace}%
+
+% Guillements français
+\newcommand{\guill}[1]{%
+\og{}#1\fg{}}%
+
+
+% Inégalités
+\renewcommand{\leq}{\leqslant}%
+\renewcommand{\geq}{\geqslant}%
+\renewcommand{\le}{\leqslant}%
+\renewcommand{\ge}{\geqslant}%
+\newcommand{\pg}{\geqslant}%
+\newcommand{\pp}{\leqslant}%
+
+% Environ
+\newcommand{\environ}{\simeq}%
+\renewcommand{\approx}{\simeq}%
+
+
+% Tableau de variations en TikZ
+\usepackage{tikz,tkz-tab}%
+\definecolor{fondpaille}{rgb}{1,1,1}%
+
+% Aire d'une figure géométrique
+\newcommand{\aire}{\text{aire}}%
+
+% Paramétrage de quelques variables
+\setlength{\columnsep}{1cm}%
+\setlength{\columnseprule}{0.4pt}%
+\setlength{\parindent}{0pt}%
+
+% Mathématiciens
+\newcommand{\GJ}{Gauss\,--\,Jordan\xspace}%
+\newcommand{\KH}{König\,--\,Huygens\xspace}%
+
+% Siècle en lettres romains
+\newcommand{\siecle}[1]{\textsc{\romannumeral #1}\textsuperscript{e}~si\`ecle}%
+
+% Couleurs jeu de carte
+\newcommand{\pique}{\ding{171}}%
+\newcommand{\coeur}{\ding{170}}%
+\newcommand{\carreau}{\ding{169}}%
+\newcommand{\trefle}{\ding{168}}%
+
+% Exercices (fiche)
+\renewcommand*{\hrulefill}[2][0pt]{\leavevmode \leaders \hbox to 1pt{\rule[#1]{1pt}{#2}} \hfill \kern 0pt}%
+
+\newcounter{numexercice}%
+
+\newenvironment{exercice}{\stepcounter{numexercice}\ovalbox{\textbf{\thenumexercice}}\hrulefill[3pt]{0.5pt}\par\medskip\nopagebreak[4]}{\medskip}
+
+% Trait de la largeur de la feuille
+\newcommand{\trait}{\hbox{\raisebox{0.4em}{\vrule depth 0pt height 0.4pt width \textwidth}\linebreak}}%
+
+\newcommand{\demitrait}{\hbox{\raisebox{0.4em}{\vrule depth 0pt height 0.4pt width 0.48\textwidth}\linebreak}}%
+
+\newcommand{\LV}{Lycée Le Verrier, Saint\,--\,Lô}%
+%\newcommand{\itb}{\item[\textbullet]}%
+\newcommand{\itb}{\item}%
+%\newcommand{\Gaffe}{\ding{54}\ding{54}\ding{54}\quad}%
+\newcommand{\gaffe}{\ding{56}\ding{56}\ding{56}\quad}%
+
+
+% Fichier de style stage2.sty [UTF8]
+% Copyleft Laurent Bretonnière, laurent.bretonniere@gmail.com
+% Version du 16/03/2015
+
+\usepackage{mathtools}%	
+\usepackage{fancybox}%
+\usepackage{lastpage}%
+
+\usepackage{fancyhdr}%
+\renewcommand{\headrulewidth}{0.8pt}%
+\renewcommand{\footrulewidth}{0.8pt}%
+
+\usepackage[tikz]{bclogo}%
+\renewcommand\bcStyleTitre[1]{\normalsize\textbf{#1}\smallskip}%
+\renewcommand\logowidth{0pt}%
+
+\newcommand{\fin}{\begin{center}%
+$\clubsuit\clubsuit\clubsuit$%
+\end{center}}%
+
+\newcommand{\un}{\ding{192}\xspace}%
+\newcommand{\deux}{\ding{193}\xspace}%
+\newcommand{\trois}{\ding{194}\xspace}%
+\newcommand{\quatre}{\ding{195}\xspace}%
+\newcommand{\cinq}{\ding{196}\xspace}%
+\newcommand{\six}{\ding{197}\xspace}%
+\newcommand{\sept}{\ding{198}\xspace}%
+\newcommand{\huit}{\ding{199}\xspace}%
+\newcommand{\neuf}{\ding{200}\xspace}%
+
+\setlength{\headheight}{15pt}%
+
+%*********************************************************************************************
+% Cours
+%*********************************************************************************************
+
+\usepackage[Lenny]{fncychap}%
+\ChNumVar{\fontsize{76}{80}\usefont{OT1}{pzc}{m}{n}\selectfont}%
+\ChTitleVar{\raggedleft\Huge\sffamily\bfseries}%
+
+\renewcommand{\thesection}{\Roman{section})}%
+\renewcommand{\thesubsection}{\arabic{subsection})}%
+\renewcommand{\thesubsubsection}{\alph{subsubsection})}%
+
+%*********************************************************************************************
+% Environnements prédéfinis BCLOGO
+%*********************************************************************************************
+
+%% Lemme
+\newenvironment{lem}{\begin{bclogo}[couleurBord=black!50,arrondi=0.1,logo=\hspace{17pt},barre=none]{Lemme :}}{\end{bclogo}\medskip}%
+
+%% Proposition
+\newenvironment{prop}[1][]{\begin{bclogo}[couleurBord=black!50,arrondi=0.1,logo=\hspace{17pt},barre=none]{Proposition :~#1}}{\end{bclogo}\medskip}%
+
+%% Théorème
+\newlength{\textlarg}
+\settowidth{\textlarg}{~}
+\newenvironment{theo}[1][\hspace{-\textlarg} :]{\begin{bclogo}[couleur=black!5,couleurBord=black!50,arrondi=0.1,logo=\hspace{17pt}, barre=none]{Théorème~#1}}{\end{bclogo}\medskip}%
+
+\newenvironment{theon}[1][]{\begin{bclogo}[couleur=black!5,couleurBord=black!50,arrondi=0.1,logo=\hspace{17pt}, barre=none]{Théorème :~#1}}{\end{bclogo}\medskip}%
+
+%% Corollaire
+\newenvironment{coro}[1][]{\begin{bclogo}[couleurBord=black!50,arrondi=0.1,logo=\hspace{17pt},barre=none]{Corollaire :~#1}}{\end{bclogo}\medskip}%
+
+%% Définition(s)
+
+\newenvironment{defi}{\begin{bclogo}[couleurBord=black!50,arrondi=0.1,logo=\hspace{17pt}, barre=none]{Définition :}}{\end{bclogo}\medskip}%
+
+\newenvironment{defis}{\begin{bclogo}[couleurBord=black!50,arrondi=0.1,logo=\hspace{17pt}, barre=none]{Définitions :}}{\end{bclogo}\medskip}%
+
+%% Preuve
+\newenvironment{pf}{\renewcommand\logowidth{17pt}\begin{bclogo}[noborder=true,logo=\hspace{17pt},couleurBarre=black!25,epBarre=3.5]{Preuve :}}{\hspace*{\fill}$\Box$\end{bclogo}\smallskip\renewcommand\logowidth{0pt}}%
+
+%\blacksquare
+
+%% Notation
+\newenvironment{nota}{\begin{bclogo}[couleurBord=black!50,arrondi=0.1,logo=\hspace{17pt},barre=none]{Notation :}}{\medskip}%
+
+%% Exercice et Exercice-type
+\newenvironment{exo}{$\circledast$ \quad\textsc{\underline{exercice} :}~}{\hspace*{\fill}$\circledast$\vskip 8pt}
+\newenvironment{type}{$\blacktriangleright$ \quad\textsc{exercice-type :}~}{\hspace*{\fill}$\blacktriangleleft$\vskip 8pt}
+
+%% Exemple(s)
+\newenvironment{exem}{\textbf{Exemple :}~}{\medskip}
+\newenvironment{exems}{\textbf{Exemples :}~}{\medskip}
+
+%% Remarque(s)
+\newenvironment{rem}{\textbf{Remarque :}~}{\medskip}
+\newenvironment{rems}{\textbf{Remarques :}~}{\medskip}
+
+%% Rappel(s)
+\newenvironment{rap}{\textbf{Rappel :}~}{\medskip}
+\newenvironment{raps}{\textbf{Rappels :}~}{\medskip}
+
+%% Cas particulier(s)
+\newenvironment{cp}{\textbf{Cas particulier :}~}{\medskip}
+\newenvironment{cps}{\textbf{Cas particuliers :}~}{\medskip}
+
+%% Application
+\newenvironment{appli}{\textbf{Application :}~}{\medskip}%{\medskip} 
+
+%******************************************
+
+%Permet le code python sur lateX
+\usepackage{minted}
+\usemintedstyle{lovelace}
+
+%box exercice
+\usepackage{tcolorbox}
+\newtcolorbox{mybox}[1]{colback=yellow!5!,colframe=yellow!50!black,colbacktitle=yellow!75!black,fonttitle=\bfseries,
+title=#1}
+
+%%Propriété
+\newenvironment{pro}[1][]{\begin{bclogo}[couleurBord=black!50,arrondi=0.1,logo=\hspace{17pt},barre=none]{Propriété :~#1}}{\end{bclogo}\medskip}%
+
+
+%Permet de mettre les coordonnées d'un vecteur
+\newcommand*{\Coord}[3]{% 
+  \ensuremath{\overrightarrow{#1}\, 
+    \begin{pmatrix} 
+      #2\\ 
+      #3 
+    \end{pmatrix}}}
+
